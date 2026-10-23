@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: channel-cleaner-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: REMOVE_LINKS
+        value: "true"
+      - key: REMOVE_MENTIONS
+        value: "true"
+      - key: REMOVE_HASHTAGS
+        value: "true"
+      - key: BLOCKED_WORDS
+        value: "join, subscribe, promo"
+      - key: REMOVE_PHRASES
+        value: ""
